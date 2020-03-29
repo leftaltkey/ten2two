@@ -3,21 +3,23 @@ import sys
 
 def largest_power_of_two(value):
     '''
-    finds the largest power of two that is less than
+    Finds the largest power of two that is less than
     the input value
     '''
-    for i in range(32768):
+    i = 0
+    while True:
+        i += 1
         if 2**i > value:
             return i-1
 
 
 class Base2:
     '''
-    holds a base 2 data type
+    Holds a base 2 data type.
+    Access through `value`.
     '''
     def __init__(self, value=0):
         self.value = value
-
 
     def add(self, power_of_2:int):
         self.value = self.value + 10**power_of_2
@@ -25,7 +27,7 @@ class Base2:
 
 def ten2two(num10:int):
     '''
-    converts the input argument from base 10 to base 2
+    Converts the input argument from base 10 to base 2
     returns the base 2 value
     '''
     num2 = Base2()
@@ -43,4 +45,4 @@ num10 = int(sys.argv[1])
 print('The base 10 value is: {}'.format(num10))
 
 num2 = ten2two(num10)
-print('The base 2 value is: {}'.format(num2))
+print('The base  2 value is: {}'.format(num2))
